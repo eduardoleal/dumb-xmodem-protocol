@@ -17,6 +17,7 @@ def txp(seq, data):
         s.write(data)
         s.write(str(fcs))
         rx = s.read(1)
+
         if(rx == str(0x06)):
             end = 1
 
@@ -31,6 +32,8 @@ def txd(data):
         j = i * 128
         dp = data[j:j+128]
         txp(seq, dp)
+
 info = 'abc'
 txd(info)
+s.write(str(0x04))
 s.close()
