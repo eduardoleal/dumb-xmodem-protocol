@@ -24,6 +24,8 @@ def txd(data):
     n = len(data) / 128
     if (len(data) % 128 > 0):
         n = n + 1
+        for i in range(n * 128 - len(data)):
+            data = data + 'x'
     for i in range(n):
         seq = i % 256 + 1
         j = i * 128
