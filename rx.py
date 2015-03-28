@@ -17,6 +17,7 @@ def check(seq, seqn, mensagem, somarec):
     return 0
 
 end = 0
+msgTotal = ''
 while (end == 0):
     soh = s.read(1)
 
@@ -25,15 +26,14 @@ while (end == 0):
         seqn = s.read(2)
         mensagem = s.read(128)
         somarec = s.read(3)
-
         if (check(seq, seqn, mensagem, somarec) == 1):
-            print 'fimfimfim'
+            msgTotal = msgTotal + mensagem
             s.write(str(0x06))
         else:
-            print 'coontinuaaa'
             s.write(str(0x15))
 
 
     if soh == str (0x04):
         end = 1
+print msgTotal
 s.close()
