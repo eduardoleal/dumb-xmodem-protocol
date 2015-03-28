@@ -11,7 +11,7 @@ def txp(seq, data):
 
         fcs = 0
         for i in range(128):
-            fcs = fcs + int(data[i])
+            fcs = fcs + ord(data[i])
 
         fcs = fcs % 256
         s.write(data)
