@@ -1,5 +1,5 @@
 import serial
-s = serial.Serial('/dev/pts/7')
+s = serial.Serial('/dev/pts/1')
 
 def txp(seq, data):
     end = 0
